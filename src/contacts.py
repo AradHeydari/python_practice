@@ -4,3 +4,6 @@ class ContactsBook:
 
     def add_contact(self, name: str, phone: str) -> None:
         self.contacts.append({"name": name, "phone": phone})
+
+    def list_contacts(self):
+        return self.contacts
