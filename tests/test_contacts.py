@@ -20,3 +20,10 @@ class test_contacts_book(unittest.TestCase):
         book.add_contact("Tyler", "05679901503")
         result = book.search("Tyler")
         self.assertEqual(result[0]["phone"], "05679901503")
+
+    def test_search_by_phone(self):
+        book = ContactsBook()
+        book.add_contact("Tyler", "05679901503")
+        result = book.search("05679901503")
+        self.assertEqual(result[0]["name"], "Tyler")
+        

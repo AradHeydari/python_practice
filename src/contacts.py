@@ -8,5 +8,5 @@ class ContactsBook:
     def list_contacts(self):
         return self.contacts
     
-    def search(self, name):
-        return [c for c in self.contacts if c["name"] == name]
+    def search(self, n_p): #n_p stands for name or phone 
+        return [c for c in self.contacts if c["name"] == n_p or c["phone"] == n_p]
