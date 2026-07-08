@@ -7,3 +7,6 @@ class ContactsBook:
 
     def list_contacts(self):
         return self.contacts
+    
+    def search(self, name):
+        return [c for c in self.contacts if c["name"] == name]
