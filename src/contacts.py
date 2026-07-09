@@ -10,3 +10,6 @@ class ContactsBook:
     
     def search(self, n_p): #n_p stands for name or phone 
         return [c for c in self.contacts if c["name"] == n_p or c["phone"] == n_p]
+    
+    def delete(self, identifier):
+        self.contacts = [x for x in self.contacts if x["name"] != identifier and x["phone"] != identifier]
