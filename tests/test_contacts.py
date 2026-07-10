@@ -1,4 +1,5 @@
 import unittest
+import os
 from src.contacts import ContactsBook
 
 class test_contacts_book(unittest.TestCase):
@@ -40,5 +41,16 @@ class test_contacts_book(unittest.TestCase):
         book.add_contact("Melinda", "01925698875")
         book.delete("01925698875")
         self.assertEqual(len(book.contacts), 0)
+
+    def test_save_and_load(self):
+        book = ContactsBook()
+        book.add_contact("Test", "123")
+        book.save_to_file("test.json")
+
+        new_book = ContactsBook()
+        new_book.load_from_file("test.json")
+        self.assertEqual(new_book.list_contacts(), [{"name": "Test", "phone": "123"}])
+
+        os.remove("test.json")
 
     
