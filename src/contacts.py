@@ -1,3 +1,5 @@
+import json
+from typing import List, Dict
 class ContactsBook:
     def __init__(self):
         self.contacts : list[dict[str, str]] = []
@@ -13,3 +15,11 @@ class ContactsBook:
     
     def delete(self, identifier):
         self.contacts = [x for x in self.contacts if x["name"] != identifier and x["phone"] != identifier]
+
+    def save_to_file(self, filename):
+        with open(filename, "w") as f:
+            json.dump(self.contacts, f)
+
+    def load_file(self, filename):
+        with open(filename, "r") as f:
+            self.contacts = json.load(f)
